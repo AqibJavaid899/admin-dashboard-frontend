@@ -58,6 +58,7 @@ const reverseDarkTokensToLightTokens = (tokensDark) => {
     }
     reverseTokens[key] = reversedObj;
   });
+  return reverseTokens;
 };
 
 export const tokensLight = reverseDarkTokensToLightTokens(tokensDark);
