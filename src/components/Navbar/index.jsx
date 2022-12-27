@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setMode } from "state/slices/globalSlice";
 import FlexBetween from "components/Styles/FlexBetween";
 
-const Navbar = () => {
+const Navbar = ({ setIsSidebarOpen }) => {
   const dispatch = useDispatch();
   const mode = useSelector((state) => state.global.mode);
   const theme = useTheme();
@@ -28,13 +28,15 @@ const Navbar = () => {
         position: "static",
         background: "none",
         boxShadow: "none",
-        border: "1px solid lightgray",
+        height: "4.2rem",
       }}
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* Left Navbar */}
         <FlexBetween gap="6px">
-          <IconButton>
+          <IconButton
+            onClick={() => setIsSidebarOpen((prevState) => !prevState)}
+          >
             <MenuIcon />
           </IconButton>
           <FlexBetween
