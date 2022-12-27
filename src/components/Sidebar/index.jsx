@@ -118,10 +118,9 @@ const Sidebar = ({
                             : "transparent",
                         "&:hover": {
                           backgroundColor:
-                            activeOption === lowerCaseText
-                              ? theme.palette.secondary[300]
-                              : "transparent",
-                          opacity: 0.8,
+                            activeOption === lowerCaseText &&
+                            theme.palette.secondary[300],
+                          opacity: activeOption === lowerCaseText && 0.8,
                         },
                       }}
                     >
