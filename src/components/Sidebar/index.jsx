@@ -14,7 +14,6 @@ import {
 import {
   SettingsOutlined,
   ChevronLeft,
-  ChevronLeftOutlined,
   HomeOutlined,
   ShoppingCartOutlined,
   Groups2Outlined,
@@ -32,8 +31,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import FlexBetween from "components/Styles/FlexBetween";
+import profile from "assets/profile.jpg";
 
 const Sidebar = ({
+  user,
   isNonMobile,
   isSidebarOpen,
   setIsSidebarOpen,
@@ -68,7 +69,7 @@ const Sidebar = ({
         >
           <Box width="100%">
             {/* Title and Chevron Button */}
-            <Box m="1.5rem 0.6rem 1.5rem 2.7rem">
+            <Box m="1.5rem 0.6rem 1.5rem 3rem">
               <FlexBetween gap="0.5rem" color={theme.palette.secondary.main}>
                 <Box>
                   <Typography variant="h6" fontWeight="bold">
@@ -91,7 +92,7 @@ const Sidebar = ({
                   return (
                     <Typography
                       key={text}
-                      sx={{ margin: "2rem 0 1.5rem 2.7rem" }}
+                      sx={{ margin: "1.5rem 0 0.8rem 2.7rem" }}
                       fontWeight="bold"
                     >
                       {text}
@@ -126,7 +127,7 @@ const Sidebar = ({
                     >
                       <ListItemIcon
                         sx={{
-                          ml: "1.6rem",
+                          ml: "1.8rem",
                           color:
                             activeOption === lowerCaseText
                               ? theme.palette.primary[600]
@@ -144,6 +145,45 @@ const Sidebar = ({
                 );
               })}
             </List>
+          </Box>
+
+          {/* User Info and Avatar */}
+          <Box position="absolute" bottom="1.5rem">
+            <Divider />
+            <FlexBetween
+              textTransform="none"
+              gap="1rem"
+              m="1.5rem 2rem 0rem 2.8rem"
+            >
+              <Box
+                component="img"
+                src={profile}
+                height="44px"
+                width="44px"
+                borderRadius="50%"
+                sx={{ objectFit: "cover" }}
+              />
+              <Box textAlign="left">
+                <Typography
+                  fontSize="0.9rem"
+                  fontWeight="bold"
+                  sx={{ color: theme.palette.secondary[100] }}
+                >
+                  {user.name}
+                </Typography>
+                <Typography
+                  fontSize="0.8rem"
+                  sx={{ color: theme.palette.secondary[200] }}
+                >
+                  {user.occupation}
+                </Typography>
+              </Box>
+              <IconButton
+                sx={{ color: theme.palette.secondary[300], fontSize: "25px" }}
+              >
+                <SettingsOutlined />
+              </IconButton>
+            </FlexBetween>
           </Box>
         </Drawer>
       )}

@@ -14,20 +14,23 @@ const Layout = () => {
 
   const { data } = useGetUserQuery(userId);
 
-  console.log("Data is : ", data);
-
   const isNonMobile = useMediaQuery("(min-width: 600px)");
 
   return (
     <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
       <Sidebar
+        user={data || {}}
         isNonMobile={isNonMobile}
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
         drawerWidth="260px"
       />
-      <Box width="100%">
-        <Navbar setIsSidebarOpen={setIsSidebarOpen} />
+      <Box flexGrow={1}>
+        <Navbar
+          user={data || {}}
+          setIsSidebarOpen={setIsSidebarOpen}
+          isNonMobile={isNonMobile}
+        />
         <Outlet />
       </Box>
     </Box>
