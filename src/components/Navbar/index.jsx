@@ -53,7 +53,7 @@ const Navbar = ({ setIsSidebarOpen }) => {
         </FlexBetween>
 
         {/* Right Navbar */}
-        <FlexBetween gap="1.5rem">
+        <FlexBetween gap="1.2rem" ml="1rem">
           <IconButton onClick={() => dispatch(setMode())}>
             {mode === "dark" ? <DarkModeOutlined /> : <LightModeOutlined />}
           </IconButton>

@@ -91,7 +91,7 @@ const Sidebar = ({
                   return (
                     <Typography
                       key={text}
-                      sx={{ margin: "2rem 0 1.5rem 2.5rem" }}
+                      sx={{ margin: "2rem 0 1.5rem 2.7rem" }}
                       fontWeight="bold"
                     >
                       {text}
