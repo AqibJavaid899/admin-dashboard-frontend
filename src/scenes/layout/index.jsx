@@ -14,7 +14,7 @@ const Layout = () => {
 
   const { data } = useGetUserQuery(userId);
 
-  const isNonMobile = useMediaQuery("(min-width: 600px)");
+  const isNonMobile = useMediaQuery("(min-width: 820px)");
 
   return (
     <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
