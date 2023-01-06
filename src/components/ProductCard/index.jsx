@@ -61,7 +61,7 @@ const ProductCard = ({
           sx={{ fontSize: "12px" }}
           color={theme.palette.secondary[100]}
         >
-          Revision of Nonaut Sub in Mouth/Throat, Via Opening
+          {description}
         </Typography>
       </CardContent>
 
